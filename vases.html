@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אגרטלים | פרחי ברזיל — זכוכית ויוקרה</title>
+<meta name="description" content="אגרטלי זכוכית שקופים ואגרטלי יוקרה עיצוביים שיציגו את הזר שלכם בדיוק כמו שמגיע לו.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="vases">
+<a class="skip-link" href="#main">דלג לתוכן</a>
+
+<main id="main">
+
+  <!-- ░░ PAGE HERO ░░ -->
+  <header class="page-hero page-hero--media">
+    <div class="page-hero__media"><img src="images/products/bouquet-great-bloom.png" alt="אגרטלים — פרחי ברזיל"></div>
+    <div class="container page-hero__inner">
+      <span class="eyebrow">פרחי ברזיל</span>
+      <h1>אגרטלים</h1>
+      <p class="lead">הבית הנכון לזר שלכם. אגרטלי זכוכית ויוקרה בקווים נקיים ומוקפדים.</p>
+    </div>
+  </header>
+
+  <!-- ░░ CATALOG ░░ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="chips" data-subchips="vases" data-filter-for="grid-vases" style="margin-bottom:2rem"></div>
+
+      <div class="toolbar">
+        <div class="toolbar__count"><b data-count>0</b> מוצרים בקטגוריה</div>
+        <label class="select">מיון:
+          <select aria-label="מיון מוצרים">
+            <option>הנמכרים ביותר</option>
+            <option>מחיר: מהנמוך לגבוה</option>
+            <option>מחיר: מהגבוה לנמוך</option>
+            <option>חדשים</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid grid--products" id="grid-vases" data-grid="vases"></div>
+
+    </div>
+  </section>
+
+  <!-- ░░ HELP CTA ░░ -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-band" data-reveal>
+        <div class="cta-band__glow"></div>
+        <span class="eyebrow eyebrow--center" style="color:#fff">כאן בשבילכם</span>
+        <h2>לא בטוחים מה לבחור?</h2>
+        <p>ספרו לנו על המאורע ועל מי שתרצו לשמח — ונרכיב עבורכם את המתנה המושלמת.</p>
+        <div class="hero__cta">
+          <a class="btn btn--on-dark btn--lg" href="#" data-wa>דברו איתנו בוואטסאפ</a>
+          <a class="btn btn--lg" style="--btn-bg:transparent;--btn-fg:#fff;border-color:rgba(255,255,255,.4)" data-phone>התקשרו עכשיו</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/site.js"></script>
+<script>
+  document.querySelectorAll("[data-wa]").forEach(function(a){ a.href=BIZ.whatsappHref; a.target="_blank"; a.rel="noopener"; });
+  document.querySelectorAll("[data-phone]").forEach(function(a){ a.href=BIZ.phoneHref; });
+</script>
+</body>
+</html>

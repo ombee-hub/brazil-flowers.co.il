@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>עגלת הקניות | פרחי ברזיל</title>
+<meta name="description" content="עגלת הקניות שלכם בפרחי ברזיל — סיכום הזמנה ומעבר מהיר לתשלום מאובטח.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="cart">
+<a class="skip-link" href="#main">דלג לתוכן</a>
+
+<main id="main">
+  <header class="page-hero">
+    <div class="container page-hero__inner">
+      <span class="eyebrow">כמעט שם</span>
+      <h1>עגלת הקניות</h1>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container" id="cart-root"></div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  var DELIVERY = 35, FREE_OVER = 300;
+  function render(){
+    var items = BF.Cart.get();
+    var root = document.getElementById("cart-root");
+    if(!items.length){
+      root.innerHTML =
+        '<div class="cart-empty">'+
+          '<div class="cart-empty__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 12.4a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/></svg></div>'+
+          '<h2 class="h2" style="font-weight:300">העגלה ריקה</h2>'+
+          '<p class="lead" style="margin:.8rem auto 1.8rem;max-width:40ch">עוד לא הוספתם פריטים. בואו נמצא את הזר המושלם.</p>'+
+          '<a class="btn btn--lg" href="bouquets.html">לצפייה בזרים</a>'+
+        '</div>';
+      return;
+    }
+    var subtotal = BF.Cart.total();
+    var delivery = subtotal >= FREE_OVER ? 0 : DELIVERY;
+    var total = subtotal + delivery;
+    var lines = items.map(function(it){
+      return '<div class="cart-line" data-key="'+it.key+'">'+
+        '<div class="cart-line__img"><img src="'+it.img+'" alt="'+it.name+'"></div>'+
+        '<div><div class="cart-line__name">'+it.name+'</div>'+
+          (it.size?'<div class="cart-line__meta">גודל: '+it.size+'</div>':'')+
+          '<div class="qty" style="margin-top:.6rem;transform:scale(.9);transform-origin:right"><button type="button" data-dec aria-label="הפחת">−</button><input value="'+it.qty+'" readonly aria-label="כמות"><button type="button" data-inc aria-label="הוסף">+</button></div>'+
+        '</div>'+
+        '<div class="cart-line__price" style="text-align:end"><div style="font-weight:600;font-size:1.1rem">'+BF.fmt(it.price*it.qty)+'</div>'+
+          '<button class="cart-line__remove" data-remove>הסרה</button></div>'+
+      '</div>';
+    }).join("");
+
+    root.innerHTML =
+      '<div class="cart-layout">'+
+        '<div>'+
+          '<div class="toolbar" style="margin-bottom:.5rem"><div class="toolbar__count"><b>'+items.length+'</b> פריטים בעגלה</div><a class="link-arrow" href="bouquets.html">המשך בקניות</a></div>'+
+          lines+
+        '</div>'+
+        '<aside class="summary">'+
+          '<h3 class="h3" style="margin-bottom:1.2rem">סיכום הזמנה</h3>'+
+          '<div class="summary__row"><span>סכום ביניים</span><span>'+BF.fmt(subtotal)+'</span></div>'+
+          '<div class="summary__row"><span>משלוח</span><span>'+(delivery===0?'<b style="color:var(--green)">חינם</b>':BF.fmt(delivery))+'</span></div>'+
+          (delivery>0?'<div class="muted" style="font-size:.82rem;margin:.2rem 0 .4rem">הוסיפו '+BF.fmt(FREE_OVER-subtotal)+' למשלוח חינם 🎉</div>':'')+
+          '<div class="summary__row summary__row--total"><span>סה״כ לתשלום</span><span>'+BF.fmt(total)+'</span></div>'+
+          '<button class="btn btn--lg btn--block" style="margin-top:1.2rem" id="checkout">מעבר לתשלום מאובטח</button>'+
+          '<a class="btn btn--ghost btn--block" id="wa-order" target="_blank" rel="noopener" style="margin-top:.7rem"><span data-icon="whatsapp"></span> סיום הזמנה בוואטסאפ</a>'+
+          '<ul class="pdp__assure" style="margin-top:1.5rem">'+
+            '<li><span data-icon="shield"></span> תשלום מאובטח · אשראי · ביט · PayPal</li>'+
+            '<li><span data-icon="truck"></span> משלוח עד שעה בצפון ת״א</li>'+
+            '<li><span data-icon="refresh"></span> לא מרוצים? נחליף מיד</li>'+
+          '</ul>'+
+        '</aside>'+
+      '</div>';
+
+    // re-inject icons used in freshly-built markup
+    root.querySelectorAll("[data-icon]").forEach(function(el){ if(BF.I[el.dataset.icon]) el.innerHTML=BF.I[el.dataset.icon]; });
+
+    // wire line controls
+    root.querySelectorAll(".cart-line").forEach(function(line){
+      var key = line.dataset.key;
+      var it = BF.Cart.get().find(function(x){ return x.key===key; });
+      line.querySelector("[data-inc]").addEventListener("click", function(){ BF.Cart.setQty(key, it.qty+1); render(); });
+      line.querySelector("[data-dec]").addEventListener("click", function(){ BF.Cart.setQty(key, it.qty-1); render(); });
+      line.querySelector("[data-remove]").addEventListener("click", function(){ BF.Cart.remove(key); render(); });
+    });
+    var wa = document.getElementById("wa-order");
+    if(wa) wa.href = "https://wa.me/972509266502?text=" + encodeURIComponent("היי, אשמח לסיים הזמנה בסך " + BF.fmt(total) + " 🌸");
+    var co = document.getElementById("checkout");
+    if(co) co.addEventListener("click", function(){ alert("מעבר לתשלום — בגרסה החיה כאן ייפתח עמוד הסליקה המאובטח."); });
+  }
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# מערכת הפעלה
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# קונפיגורציית עורך / Claude Code
+.claude/
+
+# לוגים וזמניים
+*.log
+*.tmp

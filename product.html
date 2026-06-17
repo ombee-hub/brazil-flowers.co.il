@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>פרחי ברזיל — עמוד מוצר</title>
+<meta name="description" content="עמוד מוצר — פרחי ברזיל. בחרו גודל ותוספות, הוסיפו לעגלה וקבלו משלוח מהיר עד הבית.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="product">
+<a class="skip-link" href="#main">דלג לתוכן</a>
+
+<main id="main">
+
+  <section class="section" style="padding-top:calc(var(--header-h) + 2.5rem)">
+    <div class="container">
+      <div class="pdp">
+
+        <!-- GALLERY -->
+        <div class="pdp__gallery">
+          <div class="pdp__main"><img id="pdp-img" src="" alt=""></div>
+          <div class="pdp__thumbs" id="pdp-thumbs"></div>
+        </div>
+
+        <!-- INFO -->
+        <div class="pdp__info">
+          <span class="card__cat" id="pdp-cat">זרים</span>
+          <h1 class="h1" id="pdp-name">—</h1>
+          <div class="rating-pill" style="border:0;box-shadow:none;padding:0;gap:.5rem">
+            <span class="stars" style="display:flex;color:var(--gold)">
+              <span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span><span data-icon="star"></span>
+            </span>
+            <span class="muted" style="font-size:.9rem">5.0 · 128 ביקורות</span>
+          </div>
+
+          <div class="pdp__price" id="pdp-price"></div>
+          <p class="lead" id="pdp-desc" style="font-size:1.05rem"></p>
+
+          <div class="pdp__divider"></div>
+
+          <!-- size -->
+          <div class="opt-group" id="size-group">
+            <div class="opt-group__label">בחרו גודל <span id="size-hint"></span></div>
+            <div class="opt-set" id="size-set"></div>
+          </div>
+
+          <!-- add-ons -->
+          <div class="opt-group">
+            <div class="opt-group__label">הוסיפו למתנה <span>אופציונלי</span></div>
+            <div class="opt-set" id="addon-set">
+              <button class="opt" data-addon="card" data-price="15">כרטיס ברכה <small>+₪15</small></button>
+              <button class="opt" data-addon="choc" data-price="60">שוקולד דה קרינה <small>+₪60</small></button>
+              <button class="opt" data-addon="balloon" data-price="45">בלון הליום <small>+₪45</small></button>
+              <button class="opt" data-addon="vase" data-price="70">אגרטל זכוכית <small>+₪70</small></button>
+            </div>
+          </div>
+
+          <!-- qty + buy -->
+          <div class="pdp__buy">
+            <div class="qty">
+              <button type="button" data-q="-1" aria-label="הפחת">−</button>
+              <input id="qty" value="1" inputmode="numeric" aria-label="כמות">
+              <button type="button" data-q="1" aria-label="הוסף">+</button>
+            </div>
+            <button class="btn btn--block btn--lg" id="add-btn">הוספה לעגלה · <span id="total-price"></span></button>
+          </div>
+          <a class="btn btn--ghost btn--block" id="wa-btn" style="margin-top:.8rem" target="_blank" rel="noopener"><span data-icon="whatsapp"></span> הזמנה מהירה בוואטסאפ</a>
+
+          <ul class="pdp__assure">
+            <li><span data-icon="truck"></span> משלוח עד שעה בצפון ת״א · הזמנה עד 14:00 מגיעה היום</li>
+            <li><span data-icon="leaf"></span> פרחים טריים שנקטפו הבוקר — טריות מובטחת</li>
+            <li><span data-icon="refresh"></span> לא מרוצים? נחליף מיד, ללא שאלות</li>
+            <li><span data-icon="shield"></span> תשלום מאובטח · אשראי · ביט · PayPal</li>
+          </ul>
+
+          <!-- details accordion -->
+          <div class="acc" style="margin-top:2rem">
+            <div class="acc__item is-open">
+              <button class="acc__head">תיאור המוצר <span data-icon="plus"></span></button>
+              <div class="acc__body"><div><p id="acc-desc"></p></div></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__head">משלוח ואספקה <span data-icon="plus"></span></button>
+              <div class="acc__body"><div><p>משלוחים מהירים בצפון תל אביב והסביבה, לרוב תוך 3–5 שעות. הזמנות שמתקבלות עד השעה 14:00 מגיעות עוד באותו היום. ניתן לתאם שעת מסירה מראש.</p></div></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__head">טיפול ושמירה על טריות <span data-icon="plus"></span></button>
+              <div class="acc__body"><div><p>החליפו מים כל יומיים, קצצו מעט את הגבעולים בזווית והרחיקו מאור שמש ישיר וממקורות חום. כך הזר יישאר רענן ויפה לאורך זמן.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="section section--cream">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow eyebrow--center">אולי יתאים גם</span>
+        <h2 class="h2">עוד מאותה קטגוריה</h2>
+      </div>
+      <div class="grid grid--products" id="related"></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/site.js"></script>
+<script>
+(window.BF_CATALOG_READY || Promise.resolve()).then(function(){
+  var params = new URLSearchParams(location.search);
+  var id = params.get("id") || "bloom";
+  var p = window.PRODUCTS.find(function(x){ return x.id===id; }) || window.PRODUCTS[0];
+  var cat = window.CATEGORIES.find(function(c){ return c.key===p.cat; }) || {name:"",page:"index.html"};
+
+  document.title = p.name + " — פרחי ברזיל";
+  document.getElementById("pdp-name").textContent = p.name;
+  document.getElementById("pdp-cat").textContent = p.sub || cat.name;
+  document.getElementById("pdp-desc").textContent = p.desc || "";
+  document.getElementById("acc-desc").textContent = (p.desc||"") + " כל זר נשזר ביד על ידי השוזרת מירלה מפרחי העונה הטריים ביותר, ונארז באריזה יפיפייה ומוקפדת.";
+
+  // gallery: product image + contextual shots
+  var gallery = [p.img, window.IMG.garden, window.IMG.garden2, window.IMG.gerbera].filter(function(v,i,a){ return a.indexOf(v)===i; }).slice(0,4);
+  var mainImg = document.getElementById("pdp-img");
+  mainImg.src = gallery[0]; mainImg.alt = p.name;
+  document.getElementById("pdp-thumbs").innerHTML = gallery.map(function(src,i){
+    return '<button class="pdp__thumb'+(i===0?' is-active':'')+'" data-src="'+src+'"><img src="'+src+'" alt="תצוגה '+(i+1)+'"></button>';
+  }).join("");
+  document.getElementById("pdp-thumbs").addEventListener("click", function(e){
+    var t = e.target.closest(".pdp__thumb"); if(!t) return;
+    document.querySelectorAll(".pdp__thumb").forEach(function(x){ x.classList.remove("is-active"); });
+    t.classList.add("is-active"); mainImg.src = t.dataset.src;
+  });
+
+  // price block
+  var base = p.price;
+  var priceEl = document.getElementById("pdp-price");
+  priceEl.innerHTML = p.was
+    ? '<span class="now">'+BF.fmt(p.price)+'</span><span class="was">'+BF.fmt(p.was)+'</span><span class="card__price"><span class="save">חיסכון '+BF.fmt(p.was-p.price)+'</span></span>'
+    : '<span class="now">'+BF.fmt(p.price)+'</span>';
+
+  // sizes
+  var sizes = p.sizes || [["רגיל",0],["גדול",60],["ענק",120]];
+  var sizeDelta = 0, sizeLabel = sizes[0][0];
+  document.getElementById("size-set").innerHTML = sizes.map(function(s,i){
+    return '<button class="opt'+(i===0?' is-active':'')+'" data-delta="'+s[1]+'" data-label="'+s[0]+'">'+s[0]+(s[1]?' <small>+'+BF.fmt(s[1])+'</small>':'')+'</button>';
+  }).join("");
+
+  var addonTotal = 0;
+  function recalc(){
+    var qty = Math.max(1, parseInt(document.getElementById("qty").value)||1);
+    var unit = base + sizeDelta + addonTotal;
+    document.getElementById("total-price").textContent = BF.fmt(unit*qty);
+  }
+
+  document.getElementById("size-set").addEventListener("click", function(e){
+    var o = e.target.closest(".opt"); if(!o) return;
+    this.querySelectorAll(".opt").forEach(function(x){ x.classList.remove("is-active"); });
+    o.classList.add("is-active"); sizeDelta = +o.dataset.delta; sizeLabel = o.dataset.label; recalc();
+  });
+  document.getElementById("addon-set").addEventListener("click", function(e){
+    var o = e.target.closest(".opt"); if(!o) return;
+    o.classList.toggle("is-active");
+    addonTotal = [].slice.call(this.querySelectorAll(".opt.is-active")).reduce(function(s,x){ return s + (+x.dataset.price); },0);
+    recalc();
+  });
+  document.querySelectorAll("[data-q]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var inp = document.getElementById("qty");
+      inp.value = Math.max(1, (parseInt(inp.value)||1) + (+b.dataset.q)); recalc();
+    });
+  });
+  document.getElementById("qty").addEventListener("input", recalc);
+
+  document.getElementById("add-btn").addEventListener("click", function(){
+    var qty = Math.max(1, parseInt(document.getElementById("qty").value)||1);
+    BF.Cart.add(p.id, { size: sizeLabel, price: base + sizeDelta + addonTotal, qty: qty });
+  });
+
+  // whatsapp
+  var wa = document.getElementById("wa-btn");
+  wa.href = "https://wa.me/972509266502?text=" + encodeURIComponent("היי, אשמח להזמין: " + p.name + " 🌸");
+
+  // related
+  var related = window.PRODUCTS.filter(function(x){ return x.cat===p.cat && x.id!==p.id; }).slice(0,4);
+  if(related.length < 4) related = related.concat(window.PRODUCTS.filter(function(x){ return x.id!==p.id && related.indexOf(x)<0; })).slice(0,4);
+  document.getElementById("related").innerHTML = related.map(BF.card).join("");
+
+  recalc();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>יצירת קשר | פרחי ברזיל — רמת אביב, תל אביב</title>
+<meta name="description" content="יצירת קשר עם פרחי ברזיל: טלפון 03-6421863, וואטסאפ 050-9266502, רחוב ברזיל 17 רמת אביב. שעות פעילות, אזורי חלוקה ומפה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="contact">
+<a class="skip-link" href="#main">דלג לתוכן</a>
+
+<main id="main">
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="container page-hero__inner">
+      <span class="eyebrow">דברו איתנו</span>
+      <h1>נשמח לעזור לכם לבחור</h1>
+      <p class="lead">יש לכם שאלה, בקשה מיוחדת או רוצים שנרכיב זר בהתאמה אישית? אנחנו כאן 7 ימים בשבוע.</p>
+    </div>
+  </header>
+
+  <!-- QUICK CONTACT CARDS -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid grid--4">
+        <a class="value" style="border-radius:var(--radius-lg);text-align:center" href="tel:+97236421863" data-reveal>
+          <div class="value__ic" data-icon="phone" style="margin-inline:auto"></div><h3>טלפון</h3><p>03-6421863</p>
+        </a>
+        <a class="value" style="border-radius:var(--radius-lg);text-align:center" id="wa-card" target="_blank" rel="noopener" data-reveal data-delay="1">
+          <div class="value__ic" data-icon="whatsapp" style="margin-inline:auto"></div><h3>וואטסאפ</h3><p>050-9266502</p>
+        </a>
+        <a class="value" style="border-radius:var(--radius-lg);text-align:center" href="mailto:brazilflowers17@gmail.com" data-reveal data-delay="2">
+          <div class="value__ic" data-icon="mail" style="margin-inline:auto"></div><h3>אימייל</h3><p style="font-size:.85rem;word-break:break-all">brazilflowers17@gmail.com</p>
+        </a>
+        <div class="value" style="border-radius:var(--radius-lg);text-align:center" data-reveal data-delay="3">
+          <div class="value__ic" data-icon="pin" style="margin-inline:auto"></div><h3>כתובת</h3><p>ברזיל 17, רמת אביב</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM + INFO -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- FORM -->
+        <div data-reveal>
+          <span class="eyebrow">שליחת הודעה</span>
+          <h2 class="h2" style="margin-block:.8rem 1.5rem">השאירו פרטים ונחזור אליכם</h2>
+          <form id="contact-form" novalidate>
+            <div class="field-row">
+              <div class="field"><label for="f-name">שם מלא</label><input class="input" id="f-name" required placeholder="ישראל ישראלי"></div>
+              <div class="field"><label for="f-phone">טלפון</label><input class="input" id="f-phone" type="tel" required placeholder="050-0000000"></div>
+            </div>
+            <div class="field"><label for="f-topic">נושא הפנייה</label>
+              <select class="input" id="f-topic">
+                <option>הזמנת זר / סידור</option>
+                <option>הזמנה לאירוע (חתונה, אבל, עסקי)</option>
+                <option>מעקב אחר הזמנה קיימת</option>
+                <option>שאלה כללית</option>
+              </select>
+            </div>
+            <div class="field"><label for="f-msg">הודעה</label><textarea class="textarea" id="f-msg" placeholder="ספרו לנו על המאורע, התקציב והעדפות הצבעים..."></textarea></div>
+            <button class="btn btn--lg btn--block" type="submit">שליחת הודעה <span data-icon="paperPlane"></span></button>
+            <p class="muted" id="form-msg" style="margin-top:1rem;text-align:center;font-size:.9rem"></p>
+          </form>
+        </div>
+
+        <!-- INFO CARD -->
+        <div class="info-card" data-reveal data-delay="1">
+          <h3 class="h3" style="margin-bottom:1.5rem">פרטי החנות</h3>
+          <div class="info-list">
+            <div class="info-item"><div class="info-item__ic" data-icon="pin"></div><div><div class="k">כתובת</div><div class="v">רחוב ברזיל 17, רמת אביב</div><div class="sub">מתחת לבית הרופאים · גם ברודצקי 43, תל אביב</div></div></div>
+            <div class="info-item"><div class="info-item__ic" data-icon="phone"></div><div><div class="k">טלפון</div><div class="v"><a href="tel:+97236421863">03-6421863</a></div></div></div>
+            <div class="info-item"><div class="info-item__ic" data-icon="whatsapp"></div><div><div class="k">וואטסאפ</div><div class="v"><a id="wa-link" target="_blank" rel="noopener">050-9266502</a></div></div></div>
+          </div>
+
+          <hr class="divider" style="margin-block:1.75rem">
+          <h3 class="h3" style="margin-bottom:1rem;display:flex;align-items:center;gap:.5rem"><span data-icon="clock" style="width:22px;height:22px;color:var(--green)"></span> שעות פעילות</h3>
+          <table class="hours-table" id="hours"></table>
+          <span class="pill-note" style="margin-top:1.25rem"><span data-icon="calendar"></span> פתוחים 7 ימים — כולל שישי, שבת וחגים</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="section section--tight" style="padding-top:0">
+    <div class="container">
+      <div class="map-embed" data-reveal>
+        <iframe title="מפת פרחי ברזיל" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=%D7%A8%D7%97%D7%95%D7%91%20%D7%91%D7%A8%D7%96%D7%99%D7%9C%2017%20%D7%A8%D7%9E%D7%AA%20%D7%90%D7%91%D7%99%D7%91%20%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY ZONES -->
+  <section class="section section--cream" id="delivery">
+    <div class="container">
+      <div class="split">
+        <div class="split__body" data-reveal>
+          <span class="eyebrow">אזורי חלוקה</span>
+          <h2 class="h2" style="margin-block:.8rem 1rem">לאן אנחנו מגיעים?</h2>
+          <p class="lead">משלוחים מהירים ברמת אביב ובצפון תל אביב — לרוב תוך 3–5 שעות, ובאזורים הקרובים אפילו תוך שעה. מחוץ לאזור? דברו איתנו ונתאם.</p>
+          <ul class="checklist" style="margin-top:1.5rem">
+            <li><span class="tick" data-icon="check"></span><span><b>צפון תל אביב</b> — רמת אביב, רמת אביב ג', נווה אביבים, אפקה</span></li>
+            <li><span class="tick" data-icon="check"></span><span><b>תל אביב</b> — כל רחבי העיר בתיאום</span></li>
+            <li><span class="tick" data-icon="check"></span><span><b>הסביבה</b> — רמת השרון, הרצליה (בתיאום מראש)</span></li>
+          </ul>
+          <a class="btn" id="wa-zone" target="_blank" rel="noopener" style="margin-top:.5rem">בדקו זמינות לאזורכם</a>
+        </div>
+        <div class="split__media" data-reveal data-delay="1">
+          <img src="images/products/hero-garden-bouquets.webp" alt="משלוחי פרחי ברזיל">
+          <div class="split__tag"><span class="av" data-icon="truck"></span><div><b>משלוח עד שעה</b><br><span class="muted" style="font-size:.82rem">בצפון תל אביב</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container container--narrow">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow eyebrow--center">שאלות נפוצות</span>
+        <h2 class="h2">כל מה שרציתם לדעת</h2>
+      </div>
+      <div class="acc" data-reveal>
+        <div class="acc__item is-open"><button class="acc__head">עד מתי אפשר להזמין למשלוח באותו יום? <span data-icon="plus"></span></button><div class="acc__body"><div><p>הזמנות שמתקבלות עד השעה 14:00 יוצאות למשלוח ומגיעות עוד באותו היום. אחרי השעה הזו נשמח לתאם משלוח ליום למחרת או למועד שתבחרו.</p></div></div></div>
+        <div class="acc__item"><button class="acc__head">האם אפשר להוסיף כרטיס ברכה אישי? <span data-icon="plus"></span></button><div class="acc__body"><div><p>בהחלט. בכל הזמנה ניתן לצרף כרטיס ברכה עם הקדשה אישית ללא עלות, וגם לבחור כרטיסי ברכה מאוירים מיוחדים בתוספת קטנה.</p></div></div></div>
+        <div class="acc__item"><button class="acc__head">מה קורה אם אף אחד לא בבית? <span data-icon="plus"></span></button><div class="acc__body"><div><p>השליח ייצור קשר טלפוני עם המקבל או עם המזמין כדי לתאם מסירה. ניתן להשאיר הוראות מסירה מיוחדות בעת ההזמנה.</p></div></div></div>
+        <div class="acc__item"><button class="acc__head">האם הפרחים טריים ולכמה זמן הם מחזיקים? <span data-icon="plus"></span></button><div class="acc__body"><div><p>כל הפרחים נקטפים בבוקר ונשזרים ביד. בטיפול נכון הזר מחזיק מעמד 5–8 ימים. לא מרוצים מהטריות? נחליף מיד.</p></div></div></div>
+        <div class="acc__item"><button class="acc__head">אילו אמצעי תשלום אתם מקבלים? <span data-icon="plus"></span></button><div class="acc__body"><div><p>כרטיסי אשראי, Bit ו-PayPal. התשלום מאובטח ומוצפן לחלוטין.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="js/data.js"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  // wire whatsapp links
+  ["wa-card","wa-link","wa-zone"].forEach(function(idn){ var e=document.getElementById(idn); if(e) e.href=BIZ.whatsappHref; });
+  // hours table
+  document.getElementById("hours").innerHTML = BIZ.hours.map(function(h){
+    return "<tr><td>"+h.d+"</td><td>"+h.h+"</td></tr>";
+  }).join("");
+  // form (demo)
+  document.getElementById("contact-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    var name=document.getElementById("f-name").value.trim();
+    var phone=document.getElementById("f-phone").value.trim();
+    var msg=document.getElementById("form-msg");
+    if(!name || !phone){ msg.style.color="var(--blush)"; msg.textContent="נא למלא שם וטלפון."; return; }
+    msg.style.color="var(--green)";
+    msg.textContent="תודה "+name+"! קיבלנו את הפנייה ונחזור אליכם בהקדם. למענה מיידי — וואטסאפ 050-9266502.";
+    this.reset();
+  });
+})();
+</script>
+</body>
+</html>
