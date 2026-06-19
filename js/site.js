@@ -85,8 +85,6 @@
   function buildHeader(){
     const active = document.body.dataset.page || "";
     const transparent = document.body.dataset.header === "transparent";
-    const navLinks = window.CATEGORIES.map(c=>({key:c.key,name:c.name,page:c.page}));
-    const drawerLinks = navLinks.concat([{key:"contact",name:"יצירת קשר",page:"contact.html"}]);
 
     const logo = `
       <a class="site-header__logo" href="index.html" aria-label="${BIZ.name} — דף הבית">
@@ -95,10 +93,23 @@
 
     const nav = `<nav class="nav" aria-label="ניווט ראשי">
       ${window.CATEGORIES.map(c=>{
-        const subs = (c.subs||[]).map(s=>`<a href="${c.page}?sub=${encodeURIComponent(s)}">${s}</a>`).join("");
+        const list = (c.subs||[]);
+        const cards = list.map(s=>{
+          const p = (window.PRODUCTS||[]).find(pr=>pr.cat===c.key && pr.sub===s);
+          const img = (p && p.img) ? p.img : (c.hero||"");
+          const pos = (p && p.pos) ? p.pos : "center";
+          return `<a class="nav__card" href="${c.page}?sub=${encodeURIComponent(s)}">
+              <span class="nav__card-media"><img src="${img}" alt="" loading="lazy" style="object-position:${pos}"></span>
+              <span class="nav__card-name">${s}</span>
+            </a>`;
+        }).join("");
+        const hasMenu = list.length > 0;
         return `<div class="nav__item">
-          <a class="nav__link" href="${c.page}" ${c.key===active?'aria-current="page"':''}>${c.name}${subs?`<span class="nav__chev">${I.chevD}</span>`:""}</a>
-          ${subs?`<div class="nav__menu"><div class="nav__menu-inner">${subs}</div></div>`:""}
+          <a class="nav__link" href="${c.page}" ${c.key===active?'aria-current="page"':''}>${c.name}${hasMenu?`<span class="nav__chev">${I.chevD}</span>`:""}</a>
+          ${hasMenu?`<div class="nav__menu"><div class="nav__menu-inner">
+            <div class="nav__mega-head"><span class="nav__mega-title">${c.name}</span><a class="nav__mega-all" href="${c.page}">כל המוצרים</a></div>
+            <div class="nav__cards">${cards}</div>
+          </div></div>`:""}
         </div>`;
       }).join("")}
     </nav>`;
@@ -120,7 +131,26 @@
     header.className = "site-header " + (transparent ? "site-header--transparent" : "is-scrolled is-solid");
     header.innerHTML = topbar + `<div class="container"><div class="site-header__bar"><div class="site-header__lead">${menuToggle}${logo}</div>${nav}${actions}</div></div>`;
 
-    // Drawer (mobile)
+    // Drawer (mobile) — אקורדיון קטגוריות עם תמונות לכל תת-קטגוריה
+    const drawerCats = window.CATEGORIES.map(c=>{
+      const subs = (c.subs||[]).map(s=>{
+        const p = (window.PRODUCTS||[]).find(pr=>pr.cat===c.key && pr.sub===s);
+        const img = (p && p.img) ? p.img : (c.hero||"");
+        const pos = (p && p.pos) ? p.pos : "center";
+        return `<a class="drawer__sub" href="${c.page}?sub=${encodeURIComponent(s)}">
+            <span class="drawer__sub-media"><img src="${img}" alt="" loading="lazy" style="object-position:${pos}"></span>
+            <span class="drawer__sub-name">${s}</span>
+          </a>`;
+      }).join("");
+      const isOpen = c.key===active;
+      return `<div class="drawer__cat${isOpen?' is-open':''}">
+        <button class="drawer__cat-head" type="button" aria-expanded="${isOpen?'true':'false'}"><span>${c.name}</span><span class="drawer__cat-chev">${I.chevD}</span></button>
+        <div class="drawer__cat-panel"><div class="drawer__cat-inner">
+          <div class="drawer__cat-grid">${subs}</div>
+          <a class="drawer__cat-all" href="${c.page}">לכל המוצרים ב${c.name}</a>
+        </div></div>
+      </div>`;
+    }).join("");
     const drawer = document.createElement("div");
     drawer.className = "drawer"; drawer.id = "drawer";
     drawer.innerHTML = `
@@ -128,7 +158,8 @@
       <div class="drawer__panel">
         <div class="drawer__head">${logo}<button class="icon-btn" data-close aria-label="סגירה">${I.close}</button></div>
         <nav class="drawer__nav">
-          ${drawerLinks.map(l=>`<a href="${l.page}" ${l.key===active?'aria-current="page"':''}>${l.name}</a>`).join("")}
+          ${drawerCats}
+          <a class="drawer__nav-extra" href="contact.html">יצירת קשר ${I.paperPlane}</a>
         </nav>
         <div class="drawer__foot">
           <a class="btn btn--block" href="${BIZ.whatsappHref}" target="_blank" rel="noopener">${I.whatsapp} הזמנה מהירה בוואטסאפ</a>
@@ -143,6 +174,12 @@
     const mt = header.querySelector(".menu-toggle");
     mt.addEventListener("click", ()=>{ drawer.classList.add("is-open"); mt.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; });
     drawer.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click", closeDrawer));
+    // אקורדיון: פתיחה/סגירה של קטגוריה בלחיצה
+    drawer.querySelectorAll(".drawer__cat-head").forEach(b=>b.addEventListener("click", ()=>{
+      const cat = b.closest(".drawer__cat");
+      const open = cat.classList.toggle("is-open");
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+    }));
     function closeDrawer(){ drawer.classList.remove("is-open"); mt.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
     // סגירת תפריט הטלפון אוטומטית במעבר לתצוגת מחשב
     window.addEventListener("resize", ()=>{ if(window.innerWidth > 860 && drawer.classList.contains("is-open")) closeDrawer(); }, {passive:true});
