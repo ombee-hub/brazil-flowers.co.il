@@ -10,7 +10,8 @@ const BIZ = {
   phoneHref: "tel:+97236421863",
   whatsapp: "050-9266502",
   whatsappHref: "https://wa.me/972509266502?text=" + encodeURIComponent("היי, אשמח לעזרה בהזמנת זר 🌸"),
-  email: "brazilflowers17@gmail.com",
+  email: "brazilflowers17@gmail.com",        // מייל ראשי (ציבורי, מוצג באתר)
+  handlingEmail: "helloombee@gmail.com",      // מייל לטיפול — אליו נשלחות פניות הטופס
   address: "רחוב ברזיל 17, רמת אביב, תל אביב",
   address2: "מתחת לבית הרופאים · גם ברודצקי 43",
   instagram: "https://instagram.com/",

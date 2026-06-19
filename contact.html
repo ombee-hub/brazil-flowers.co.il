@@ -141,6 +141,7 @@
 
 <script src="js/data.js"></script>
 <script src="js/supabase-config.js"></script>
+<script src="js/theme.js"></script>
 <script src="js/site.js"></script>
 <script>
 (function(){
@@ -150,15 +151,21 @@
   document.getElementById("hours").innerHTML = BIZ.hours.map(function(h){
     return "<tr><td>"+h.d+"</td><td>"+h.h+"</td></tr>";
   }).join("");
-  // form (demo)
+  // טופס — שולח את הפנייה למייל הטיפול (helloombee)
   document.getElementById("contact-form").addEventListener("submit", function(e){
     e.preventDefault();
     var name=document.getElementById("f-name").value.trim();
     var phone=document.getElementById("f-phone").value.trim();
+    var topic=document.getElementById("f-topic").value;
+    var text=document.getElementById("f-msg").value.trim();
     var msg=document.getElementById("form-msg");
-    if(!name || !phone){ msg.style.color="var(--blush)"; msg.textContent="נא למלא שם וטלפון."; return; }
+    if(!name || !phone){ msg.style.color="var(--rose)"; msg.textContent="נא למלא שם וטלפון."; return; }
+    var to = (window.BIZ && BIZ.handlingEmail) || "helloombee@gmail.com";
+    var subject = "פנייה חדשה מהאתר — " + topic + " — " + name;
+    var body = "שם: "+name+"\nטלפון: "+phone+"\nנושא: "+topic+"\n\nהודעה:\n"+(text||"(ללא)");
+    window.location.href = "mailto:"+to+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(body);
     msg.style.color="var(--green)";
-    msg.textContent="תודה "+name+"! קיבלנו את הפנייה ונחזור אליכם בהקדם. למענה מיידי — וואטסאפ 050-9266502.";
+    msg.textContent="תודה "+name+"! נפתח חלון מייל לשליחת הפנייה. למענה מיידי — וואטסאפ 050-9266502.";
     this.reset();
   });
 })();

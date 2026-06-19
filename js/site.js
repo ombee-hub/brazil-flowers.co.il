@@ -355,7 +355,16 @@
   /* ---------- טעינת קטלוג מ-Supabase (אופציונלי, עם fallback ל-data.js) ---------- */
   async function loadCatalog(){
     var cfg = window.SUPABASE_CONFIG;
-    if(!cfg || !cfg.url || !cfg.anonKey) return; // לא מוגדר → נשארים עם data.js
+    if(!cfg || !cfg.url || !cfg.anonKey){
+      // אין Supabase → השתמש בנתוני פאנל הניהול המקומי אם קיימים, אחרת data.js
+      try {
+        var lp = JSON.parse(localStorage.getItem("bf_local_products_v1")||"null");
+        var lc = JSON.parse(localStorage.getItem("bf_local_categories_v1")||"null");
+        if(lp && lp.length){ window.PRODUCTS = lp.map(function(r){ return { id:r.id,name:r.name,cat:r.cat,sub:r.sub,price:r.price,was:r.was||null,img:r.img,badge:r.badge||null,pos:r.pos||null,desc:r.descr||r.desc||"" }; }); }
+        if(lc && lc.length){ window.CATEGORIES = lc.map(function(r){ return { key:r.key,name:r.name,page:r.page||(r.key+".html"),blurb:r.blurb||"",hero:r.hero||"",subs:Array.isArray(r.subs)?r.subs:(r.subs?JSON.parse(r.subs):[]) }; }); }
+      } catch(e){}
+      return;
+    }
     try {
       var headers = { apikey: cfg.anonKey, Authorization: "Bearer " + cfg.anonKey };
       var base = cfg.url.replace(/\/+$/,"") + "/rest/v1/";

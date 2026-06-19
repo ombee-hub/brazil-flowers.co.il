@@ -13,55 +13,58 @@
   --ink-soft:   #5f6347;   /* secondary text */
   --ink-faint:  #9a9b84;   /* tertiary / captions */
   --paper:      #ffffff;
-  --cream:      #f7f6ee;   /* warm cream, green undertone */
-  --cream-deep: #ecebda;
-  --sand:       #f1efe1;
+  --cream:      #f1e6d3;   /* חול-אדמה חמים — רקע ראשי רך */
+  --cream-deep: #e6d6bc;
+  --sand:       #ebddc5;
+  --clay:       #b0855c;   /* חימר */
+  --terra:      #a06746;   /* טרקוטה/אדמה — סקשנים ואקצנטים בולטים */
+  --terra-50:   #efe1d3;   /* טרקוטה בהיר מאוד — רקע רך */
 
   /* Brand green — taken from the logo (olive / leaf green) */
-  --green-900:  #28400a;   /* deepest leaf — dark sections / footer */
-  --green-700:  #41600f;
-  --green:      #5a7a1b;   /* PRIMARY — buttons, links, accents */
-  --green-500:  #779126;   /* mid leaf */
-  --green-400:  #93ad3b;   /* light leaf */
-  --green-100:  #eaf0d3;   /* light tint — soft backgrounds */
-  --green-50:   #f5f8ea;
+  --green-900:  #36462f;   /* deep sage — dark sections / footer (רך) */
+  --green-700:  #47593c;
+  --green:      #5d7a4d;   /* PRIMARY — מרווה רך ומעודן */
+  --green-500:  #748c63;   /* mid sage */
+  --green-400:  #99ac88;   /* light sage */
+  --green-100:  #e9eee2;   /* pale sage tint — רקעים רכים */
+  --green-50:   #f6f7f1;
 
   /* Accents — from the logo's rose & daisy, used sparingly */
-  --blush:      #e7a39b;   /* soft rose — hearts / decorative */
-  --rose:       #cf6a62;   /* deeper rose — sale badges */
-  --gold:       #cf9f1f;   /* golden yellow — stars / hairline */
+  --blush:      #e7b4ad;   /* dusty rose — hearts / decorative (רך) */
+  --rose:       #c97a70;   /* dusty rose — sale accents */
+  --gold:       #c2a14e;   /* muted gold — stars (מעודן) */
 
   /* Lines */
-  --line:       #e9e2d5;
-  --line-soft:  #f0eadf;
-  --line-ink:   rgba(28,23,20,.12);
+  --line:       #ece7dd;
+  --line-soft:  #f3eee4;
+  --line-ink:   rgba(28,23,20,.08);
 
   /* Typography */
   --font-sans: "Assistant", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Assistant", system-ui, -apple-system, sans-serif;
 
   /* Fluid type scale */
-  --fs-eyebrow: .78rem;
-  --fs-body:    1.0625rem;
-  --fs-lead:    clamp(1.15rem, 1rem + .6vw, 1.45rem);
-  --fs-h3:      clamp(1.3rem, 1.1rem + .9vw, 1.9rem);
-  --fs-h2:      clamp(2rem, 1.4rem + 2.6vw, 3.6rem);
-  --fs-h1:      clamp(2.8rem, 1.6rem + 5.4vw, 6.5rem);
-  --fs-display: clamp(3.4rem, 1.6rem + 8vw, 9rem);
+  --fs-eyebrow: .74rem;
+  --fs-body:    1.05rem;
+  --fs-lead:    clamp(1.1rem, 1rem + .5vw, 1.35rem);
+  --fs-h3:      clamp(1.25rem, 1.05rem + .8vw, 1.75rem);
+  --fs-h2:      clamp(1.85rem, 1.35rem + 2.1vw, 3rem);
+  --fs-h1:      clamp(2.5rem, 1.7rem + 4vw, 5.2rem);
+  --fs-display: clamp(2.9rem, 1.6rem + 5.6vw, 6.6rem);
 
   /* Spacing & layout */
   --container: 1280px;
   --container-wide: 1480px;
   --gutter: clamp(1.25rem, 4vw, 4rem);
-  --section-y: clamp(4.5rem, 8vw, 9rem);
+  --section-y: clamp(5.25rem, 9vw, 10.5rem);
   --radius: 7px;
   --radius-lg: 16px;
   --radius-btn: 12px;   /* כפתורים — מלבן עם פינות מעוגלות */
 
   /* Effects */
-  --shadow-sm: 0 2px 10px rgba(28,23,20,.05);
-  --shadow:    0 18px 50px -28px rgba(28,23,20,.28);
-  --shadow-lg: 0 40px 90px -45px rgba(28,23,20,.4);
+  --shadow-sm: 0 1px 8px rgba(28,23,20,.04);
+  --shadow:    0 14px 40px -28px rgba(28,23,20,.13);
+  --shadow-lg: 0 30px 70px -42px rgba(28,23,20,.20);
   --ease: cubic-bezier(.22,.61,.36,1);
   --ease-out: cubic-bezier(.16,1,.3,1);
   --t: .55s var(--ease);
@@ -77,7 +80,9 @@ html, body { height: 100%; }
 body {
   font-family: var(--font-sans);
   font-size: var(--fs-body);
-  line-height: 1.65;
+  line-height: 1.72;
+  letter-spacing: .002em;
+  font-weight: 400;
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
@@ -86,13 +91,13 @@ body {
 }
 img, picture, svg, video { display: block; max-width: 100%; }
 img { height: auto; }
-/* גודל בסיס לאייקונים — כללים ספציפיים גוברים עליו */
-.ic { width: 1.2em; height: 1.2em; flex: none; }
+/* גודל בסיס לאייקונים — כללים ספציפיים גוברים עליו. קו דק יותר לעדינות. */
+.ic { width: 1.2em; height: 1.2em; flex: none; stroke-width: 1.5; }
 a { color: inherit; text-decoration: none; }
 button, input, textarea, select { font: inherit; color: inherit; }
 button { cursor: pointer; background: none; border: 0; }
 ul, ol { list-style: none; padding: 0; }
-h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
+h1, h2, h3, h4 { line-height: 1.14; font-weight: 500; letter-spacing: -.005em; }
 :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 3px; }
 ::selection { background: var(--green); color: #fff; }
 
@@ -108,8 +113,8 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 /* ---------- 4. Typography helpers ---------- */
 .eyebrow {
   font-size: var(--fs-eyebrow);
-  font-weight: 600;
-  letter-spacing: .26em;
+  font-weight: 500;
+  letter-spacing: .28em;
   color: var(--green);
   text-transform: uppercase;
   display: inline-flex;
@@ -126,7 +131,7 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 .display { font-family: var(--font-display); font-weight: 500; line-height: .98; letter-spacing: -.02em; }
 .h1 { font-size: var(--fs-h1); font-weight: 300; }
 .h2 { font-size: var(--fs-h2); font-weight: 300; }
-.h3 { font-size: var(--fs-h3); font-weight: 500; }
+.h3 { font-size: var(--fs-h3); font-weight: 400; }
 .lead { font-size: var(--fs-lead); color: var(--ink-soft); font-weight: 300; line-height: 1.55; }
 .muted { color: var(--ink-soft); }
 .text-center { text-align: center; }
@@ -151,15 +156,15 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
   background: var(--btn-bg);
   color: var(--btn-fg);
   border-radius: var(--radius-btn);
-  font-weight: 600;
-  font-size: .98rem;
+  font-weight: 500;
+  font-size: .96rem;
   letter-spacing: .01em;
   line-height: 1;
   border: 1px solid transparent;
   transition: transform .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease), color .3s;
   white-space: nowrap;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(47,86,64,.55); }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px -14px rgba(47,86,64,.4); }
 .btn:active { transform: translateY(0); }
 .btn--dark { --btn-bg: var(--ink); }
 .btn--ghost { --btn-bg: transparent; --btn-fg: var(--ink); border-color: var(--line-ink); }
@@ -327,8 +332,8 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 .hero::after {
   content: ""; position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(to top, rgba(15,28,20,.78) 0%, rgba(15,28,20,.25) 45%, rgba(15,28,20,.12) 100%),
-    linear-gradient(to left, rgba(15,28,20,.45), transparent 55%);
+    linear-gradient(to top, rgba(46,34,22,.76) 0%, rgba(46,34,22,.24) 45%, rgba(46,34,22,.1) 100%),
+    linear-gradient(to left, rgba(46,34,22,.4), transparent 55%);
 }
 .hero__inner { width: 100%; padding-block: clamp(3rem, 8vh, 7rem); }
 .hero__eyebrow { color: #fff; }
@@ -386,17 +391,20 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 .card {
   position: relative; display: flex; flex-direction: column;
   background: var(--paper); border-radius: var(--radius);
+  transition: transform .45s var(--ease-out), box-shadow .45s var(--ease-out);
 }
+.card[data-reveal] { transition: opacity .7s var(--ease-out), transform .45s var(--ease-out), box-shadow .45s var(--ease-out); }
+.card:hover { transform: translateY(-7px) scale(1.025); box-shadow: 0 22px 45px -24px rgba(28,23,20,.28); z-index: 3; }
 .card__media {
   position: relative; aspect-ratio: 4/5; overflow: hidden;
   border-radius: var(--radius); background: var(--cream);
 }
-.card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--ease-out); }
-.card:hover .card__media img { transform: scale(1.05); }
+.card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease-out); }
+.card:hover .card__media img { transform: scale(1.08); }
 .card__badges { position: absolute; top: 14px; inset-inline-start: 14px; display: flex; flex-direction: column; gap: .4rem; z-index: 2; }
 .badge {
-  font-size: .68rem; font-weight: 700; letter-spacing: .04em;
-  padding: .4em .75em; border-radius: 10px; background: var(--ink); color: #fff;
+  font-size: .67rem; font-weight: 600; letter-spacing: .03em;
+  padding: .38em .72em; border-radius: 8px; background: var(--ink); color: #fff;
   backdrop-filter: blur(4px);
 }
 .badge--sale { background: var(--rose); }
@@ -435,9 +443,9 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
   aspect-ratio: 3/4; color: #fff; isolation: isolate;
 }
 .cat-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease-out); z-index: -2; }
-.cat-tile::after { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(to top, rgba(18,30,22,.85) 8%, rgba(18,30,22,.15) 60%, rgba(18,30,22,.05)); transition: background .5s; }
+.cat-tile::after { content:""; position:absolute; inset:0; z-index:-1; background: linear-gradient(to top, rgba(46,34,22,.82) 8%, rgba(46,34,22,.15) 60%, rgba(46,34,22,.05)); transition: background .5s; }
 .cat-tile:hover img { transform: scale(1.06); }
-.cat-tile:hover::after { background: linear-gradient(to top, rgba(18,30,22,.9) 8%, rgba(31,58,43,.35) 70%); }
+.cat-tile:hover::after { background: linear-gradient(to top, rgba(46,34,22,.88) 8%, rgba(74,58,38,.32) 70%); }
 .cat-tile__body { position: absolute; inset-inline: 0; bottom: 0; padding: 1.5rem; }
 .cat-tile__count { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; opacity: .85; }
 .cat-tile__name { font-size: 1.45rem; font-weight: 600; margin-top: .3rem; }
@@ -526,8 +534,8 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 .rating-pill span { font-size: .85rem; color: var(--ink-soft); }
 
 /* ---------- 15. CTA band ---------- */
-.cta-band { position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--green-900); color: #fff; padding: clamp(3rem,6vw,5.5rem); text-align: center; isolation: isolate; }
-.cta-band__glow { position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 80% at 80% 0%, rgba(111,155,124,.5), transparent 60%), radial-gradient(80% 80% at 10% 100%, rgba(74,124,89,.4), transparent 55%); }
+.cta-band { position: relative; overflow: hidden; border-radius: var(--radius-lg); background: var(--terra); color: #fff; padding: clamp(3rem,6vw,5.5rem); text-align: center; isolation: isolate; }
+.cta-band__glow { position: absolute; inset: 0; z-index: -1; background: radial-gradient(120% 80% at 80% 0%, rgba(220,180,140,.35), transparent 60%), radial-gradient(80% 80% at 10% 100%, rgba(150,95,60,.3), transparent 55%); }
 .cta-band h2 { font-size: var(--fs-h2); font-weight: 300; max-width: 18ch; margin-inline: auto; }
 .cta-band p { margin-top: 1rem; opacity: .85; max-width: 50ch; margin-inline: auto; }
 .cta-band .hero__cta { justify-content: center; }
@@ -689,13 +697,13 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 /* ---------- 21. Floating WhatsApp ---------- */
 .wa-fab {
   position: fixed; inset-block-end: 1.5rem; inset-inline-start: 1.5rem; z-index: 90;
-  width: 62px; height: 62px; border-radius: 50%; background: #25D366; color: #fff;
-  display: grid; place-items: center; box-shadow: 0 12px 30px -8px rgba(37,211,102,.6);
+  width: 62px; height: 62px; border-radius: 50%; background: var(--green); color: #fff;
+  display: grid; place-items: center; box-shadow: 0 12px 30px -10px rgba(93,122,77,.5);
   transition: transform .35s var(--ease); animation: waPulse 2.6s infinite;
 }
 .wa-fab:hover { transform: scale(1.08); }
 .wa-fab .ic { width: 30px; height: 30px; }
-@keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(37,211,102,.45)} 70%{box-shadow:0 0 0 16px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+@keyframes waPulse { 0%{box-shadow:0 0 0 0 rgba(93,122,77,.4)} 70%{box-shadow:0 0 0 16px rgba(93,122,77,0)} 100%{box-shadow:0 0 0 0 rgba(93,122,77,0)} }
 
 /* ---------- 22. Marquee (trust strip) ---------- */
 .marquee { overflow: hidden; border-block: 1px solid var(--line); background: var(--paper); }
@@ -741,6 +749,10 @@ h1, h2, h3, h4 { line-height: 1.08; font-weight: 600; letter-spacing: -.01em; }
 @media (max-width: 1100px) {
   .nav, .site-header__contact { display: none; }
   .menu-toggle { display: flex; }
+  /* יישור הלוגו לגובה ההמבורגר במצב מובייל */
+  .site-header__logo-img,
+  .site-header.is-scrolled .site-header__logo-img { height: 36px; }
+  .site-header__lead { gap: .15rem; }
 }
 @media (max-width: 860px) {
   .split { grid-template-columns: 1fr; gap: 2rem; }
