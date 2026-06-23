@@ -247,6 +247,12 @@
         </div>
         <div class="footer-pay"><span>תשלום מאובטח · אשראי · ביט · PayPal</span></div>
       </div>
+      <div class="footer-credit">
+        <a href="https://ombee.co.il" target="_blank" rel="noopener" aria-label="OMBee — עיצוב ובניית אתרים">
+          <span>עוצב ופותח על ידי</span>
+          <img src="images/brand/ombee-logo.png" alt="OMBee — Graphic Design And UI/UX">
+        </a>
+      </div>
     </div>`;
     document.body.appendChild(f);
 
